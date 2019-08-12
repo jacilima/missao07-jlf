@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width" />
+	
+	<title>Lista de Convidados</title>
+	
+	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+		rel="stylesheet"/>
+	<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+		rel="stylesheet"/>
+		
+		<link href="modelo.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+	<form class="form-horizontal" method="POST" th:object="${convidado}" th:action="@{/convidados}">
+
+
+<fieldset>
+
+<!-- Form Name -->
+<br><br><legend>Lista de Convidados</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="giftID"></label>  
+  <div class="col-md-4">
+  <input  name="nome"  type="text" placeholder="Nome" th:field="*{nome}" class="form-control input-md" >
+  
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="giftName"></label>  
+  <div class="col-md-4">
+  <input name="acompanhante" type="number" placeholder="Acompanhantes" th:field="*{qtdeAcompanhantes}" class="form-control input-md" >
+    
+    
+    <br> <input type="submit" class="btn btn-primary" value="Adicionar">
+    
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<br><br>
+
+
+
+<div class="well">
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Nome</th>
+          <th>Acompanhantes</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each = "convidado : ${convidados}">
+          <td></td>
+        
+          <td  th:text = "${convidado.nome}"></td>
+          <td  th:text = "${convidado.qtdeAcompanhantes}"></td>
+         
+        </tr>
+       
+        
+      </tbody>
+    </table>
+</div>
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+</body>
+</html>
